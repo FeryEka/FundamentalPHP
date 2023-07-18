@@ -23,4 +23,10 @@
         echo "Hello World? <br>";
         $x++;
     } while($x < 5);
+
+    // PENGKONDISIAN / PERCABANGAN
+    // if else
+    // if else if else
+    // ternary
+    // switch
 ?>
