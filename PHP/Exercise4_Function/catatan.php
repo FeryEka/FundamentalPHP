@@ -1,26 +1,37 @@
 <?php
     // DATE
     // untuk menampilkan tanggal dengan format tertentu
+    echo "tanggal ";
     echo date("dd-mm-yyyy");
+    echo "<br><br>";
 
     // TIME
-    // UNIT TIMESTAMP / EPOCH time
+    // UNIT TIMESTAMP / EPOCH t)ime
     // yang digunakan detik yang sudah berlalu sejak 1 januari 1970
     echo time();
+    echo "sec<br><br>";
 
     // contoh mencari tahu 10 hari kedepan
+    echo "10 hari kedepan adalah";
     echo date("l", time() + 60*60*24*2);
+    echo "<br><br>";
 
     // mktime
     // membuat sendiri detik 
     // mktime(0,0,0,0,0,0) , parameternya ada 6
     // jam, menit, detik, bulan, tanggal, tahun
     // contoh membuat detik dari tahun lahir
-    echo mktime("l", 0,0,0,2,6,1999);
+    echo "berapa detik sejak fery lahir ";
+    echo mktime(0,0,0,2,6,1999);
+    echo "<br>";
+    echo "hari apa fery lahir ";
+    echo date("l", mktime(0,0,0,2,06,1999));
+    echo "<br><br>";
 
     // string to time
     // strtotime()
-    echo date("l", strtotime("06 Feb 1999"));
+    echo "06 Feb 1999 berapa detik = ";
+    echo strtotime("06 Feb 1999");
 
     // strlen()
     // untuk menghitung panjang string
@@ -42,5 +53,5 @@
     // untuk memberhentikan program kita. ketika dalam baris ada die() maka program dibawahnya tidak akan dieksekusi
     // sleep()
     // untuk memberhentikan sementara. contoh sleep 2detik jika ketemu sleep akan berhenti 2 detik lalu baris selanjutnya akan dilanjutkan
-    
+
 ?>
