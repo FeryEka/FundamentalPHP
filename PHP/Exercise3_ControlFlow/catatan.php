@@ -29,4 +29,13 @@
     // if else if else
     // ternary
     // switch
+    $y = 30;
+    if ($y < 20){
+        echo "Benar!";
+    } else if($y == 20){
+        echo "Bingo!";
+    } else {
+        echo "Salah!";
+    }
+
 ?>
