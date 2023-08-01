@@ -1,5 +1,9 @@
 <?php
-  $mahasiswa = ["Rykara", "171111117", "Teknik Informatika", "171111117@mhs.stiki.ac.id"];
+  $mahasiswa = [
+    ["Rykara", "171111117", "Teknik Informatika", "171111117@mhs.stiki.ac.id"],
+    ["Fery", "171111118", "Teknik Informatika", "171111118@mhs.stiki.ac.id"],
+    ["Mahendra", "171111119", "Teknik Informatika", "171111119@mhs.stiki.ac.id"]
+];
 
 ?>
 
@@ -11,17 +15,16 @@
     <title>Latihan 2 Array</title>
 </head>
 <body>
-    <ul>
-        <?php foreach($mahasiswa as $mhs): ?>
-            <li><?= $mhs; ?></li>
-        <?php endforeach; ?>
+    <?php foreach($mahasiswa as $mhs): ?>
+        <ul>
+            <li>Nama : <?= $mhs[0]; ?></li>
+            <li>NRP :<?= $mhs[1]; ?></li>
+            <li>Jurusan :<?= $mhs[2]; ?></li>
+            <li>Email :<?= $mhs[3]; ?></li>
+        </ul>
+    <?php endforeach; ?>
     </ul>
 
-    <ul>
-        <li><?= $mahasiswa[0]; ?></li>
-        <li><?= $mahasiswa[1]; ?></li>
-        <li><?= $mahasiswa[2]; ?></li>
-        <li><?= $mahasiswa[3]; ?></li>
-    </ul>
+    
 </body>
 </html>
