@@ -6,11 +6,11 @@
     <title>POST</title>
 </head>
 <body>
-    <form action="exercise4_POST" method="post">
+    <form action="exercise4_POST.php" method="post">
         <p>masukkan nama :</p>
-        <input type="text" name="nama" required>
+        <input type="text" name="nama">
         <br>
-        <button type="submit" name="submit" id="nama">kirim</button>
+        <button type="submit" name="submit">kirim</button>
     </form>
 </body>
 </html>
