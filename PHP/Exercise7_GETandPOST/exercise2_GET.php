@@ -1,3 +1,17 @@
+<?php
+    // cek apakah tidak ada data pada $_GET
+    if (!isset($_GET["gambar"]) || 
+        !isset($_GET["nama"]) ||
+        !isset($_GET["merek"]) ||
+        !isset($_GET["chipset"]) ||
+        !isset($_GET["ram"]) ||
+        !isset($_GET["harga"])) {
+        // redirect
+        header("Location: exercise1_GET.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
