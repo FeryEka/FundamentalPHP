@@ -1,3 +1,8 @@
+<?php
+    // koneksi ke database
+    mysqli_connect("localhost", "root", "", "rykara_cell");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
