@@ -1,23 +1,7 @@
 <?php
-    // koneksi ke database
-    $conn = mysqli_connect("localhost", "root", "", "rykara_cell");
-
-    // ambil data dari tabel smartphones / query data smartphones
-    $result = mysqli_query($conn, "SELECT * FROM smartphones");
-    if (!$result) {
-        echo mysqli_error($conn);
-    }
-
-    // ambil data (fetch) mahasiswa dari object result
-    // mysqli_fetch_row() // mengembalikan array numerik
-    // mysqli_fetch_assoc() // mengembalikan array associative
-    // mysqli_fetch_array() // mengembalikan array numerik dan associative
-    // mysqli_fetch_object() //
-
-    // while ($smartphone = mysqli_fetch_assoc($result)) {
-    //     var_dump($smartphone["nama"]);
-    // }
-    
+    // menggubungkan ke file connect.php
+    require 'connect.php';
+    $smartphones = query("SELECT * FROM smartphones")
 ?>
 
 <!DOCTYPE html>
@@ -43,22 +27,22 @@
         </tr>
 
         <?= $i = 1; ?>
-        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <?php foreach ($smartphones as $smartphone ): ?>
         <tr>
             <td><?= $i; ?></td>
-            <td><?= $row["nama"]; ?></td>
-            <td><?= $row["merek"]; ?></td>
-            <td><?= $row["chipset"]; ?></td>
-            <td><?= $row["ram"]; ?></td>
-            <td><?= $row["harga"]; ?></td>
-            <td><img src="img/<?= $row["gambar"]; ?>" alt="" style="width: 50px; height:50px;"></td>
+            <td><?= $smartphone["nama"]; ?></td>
+            <td><?= $smartphone["merek"]; ?></td>
+            <td><?= $smartphone["chipset"]; ?></td>
+            <td><?= $smartphone["ram"]; ?></td>
+            <td><?= $smartphone["harga"]; ?></td>
+            <td><img src="img/<?= $smartphone["gambar"]; ?>" alt="" style="width: 50px; height:50px;"></td>
             <td>
                 <a href="">Edit</a> |
                 <a href="">Delete</a>
             </td>
         </tr>
         <?= $i++; ?>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
     </table>
 </body>
 </html>
