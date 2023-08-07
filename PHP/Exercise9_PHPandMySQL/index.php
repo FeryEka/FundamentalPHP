@@ -1,6 +1,18 @@
 <?php
     // koneksi ke database
-    mysqli_connect("localhost", "root", "", "rykara_cell");
+    $conn = mysqli_connect("localhost", "root", "", "rykara_cell");
+
+    // ambil data dari tabel smartphones / query data smartphones
+    $result = mysqli_query($conn, "SELECT * FROM smartphones");
+    if (!$result) {
+        echo mysqli_error($conn);
+    }
+
+    // ambil data (fetch) mahasiswa dari object result
+    // mysqli_fetch_row()
+    // mysqli_fetch_assoc()
+    // mysqli_fetch_array()
+    // mysqli_fetch_object()
 ?>
 
 <!DOCTYPE html>
