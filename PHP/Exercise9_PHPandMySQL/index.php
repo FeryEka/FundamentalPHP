@@ -26,7 +26,7 @@
             <th>Aksi</th>
         </tr>
 
-        <?= $i = 1; ?>
+        <?php $i = 1; ?>
         <?php foreach ($smartphones as $smartphone ): ?>
         <tr>
             <td><?= $i; ?></td>
@@ -41,7 +41,7 @@
                 <a href="">Delete</a>
             </td>
         </tr>
-        <?= $i++; ?>
+        <?php $i++; ?>
         <?php endforeach; ?>
     </table>
 </body>
