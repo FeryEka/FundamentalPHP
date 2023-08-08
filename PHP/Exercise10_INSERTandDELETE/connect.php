@@ -46,4 +46,9 @@
 
         return mysqli_affected_rows($conn);
     }
+
+    function delete($id){
+        global $conn;
+        mysqli_query($conn, "DELETE FROM smartphones WHERE id = $id");
+    }
 ?>

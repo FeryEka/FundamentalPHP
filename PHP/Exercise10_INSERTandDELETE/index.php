@@ -40,7 +40,7 @@
             <td><img src="img/<?= $smartphone["gambar"]; ?>" alt="" style="width: 50px; height:50px;"></td>
             <td>
                 <a href="">Edit</a> |
-                <a href="">Delete</a>
+                <a href="delete.php?id=<?= $smartphone["id"]; ?>">Delete</a>
             </td>
         </tr>
         <?php $i++; ?>
