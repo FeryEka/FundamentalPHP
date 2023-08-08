@@ -14,6 +14,8 @@
 <body>
     <h1>Daftar Smartphones</h1>
 
+    <a href="tambah.php">Tambah data list smartphone</a>
+    <br><br>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
