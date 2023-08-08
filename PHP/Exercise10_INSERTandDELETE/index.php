@@ -40,7 +40,7 @@
             <td><img src="img/<?= $smartphone["gambar"]; ?>" alt="" style="width: 50px; height:50px;"></td>
             <td>
                 <a href="">Edit</a> |
-                <a href="delete.php?id=<?= $smartphone["id"]; ?>">Delete</a>
+                <a href="delete.php?id=<?= $smartphone["id"]; ?>" onclick="return confirm('Yakin Ingin Menghapus data ini?')">Delete</a>
             </td>
         </tr>
         <?php $i++; ?>
