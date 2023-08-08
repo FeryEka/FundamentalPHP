@@ -24,6 +24,26 @@
         // while ($smartphone = mysqli_fetch_assoc($result)) {
         //     var_dump($smartphone["nama"]);
         // }
-        
+
         }
+
+    function add($data){
+        global $conn;
+        // ambil data dari tiap elemen dalam form
+        $nama = htmlspecialchars($data["nama"]);
+        $merek = htmlspecialchars($data["merek"]);
+        $chipset = htmlspecialchars($data["chipset"]);
+        $ram = htmlspecialchars($data["ram"]);
+        $harga = htmlspecialchars($data["harga"]);
+        $gambar = htmlspecialchars($data["gambar"]);
+
+        // query insert data
+        $query ="INSERT INTO smartphones 
+                    VALUES 
+                    ('','$nama','$merek','$chipset','$ram','$harga', '$gambar')
+                ";
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
 ?>

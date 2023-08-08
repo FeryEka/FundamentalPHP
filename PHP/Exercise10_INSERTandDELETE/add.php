@@ -1,3 +1,28 @@
+<?php
+// menggubungkan ke file connect.php
+require 'connect.php';
+
+// cek apakah tombol submit telah ditekan atau belum 
+if(isset($_POST["submit"])){
+    // cek apakah data berhasil ditambahkan atau tidak
+    if( add($_POST) > 0){
+        echo "
+                <script>
+                    alert('Data berhasil ditambahkan!');
+                    document.location.href = 'index.php';
+                </script>
+        ";
+    }else{
+        echo "
+            <script>
+                alert('Data berhasil ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +36,11 @@
         <ul>
             <li>
                 <label for="nama">Nama : </label>
-                <input type="text" name="nama" id="nama">
+                <input type="text" name="nama" id="nama" required>
             </li>
             <li>
                 <label for="merek">Merek : </label>
-                <input type="text" name="merek" id="merek">
+                <input type="text" name="merek" id="merek" required>
             </li>
             <li>
                 <label for="chipset">Chipset : </label>
