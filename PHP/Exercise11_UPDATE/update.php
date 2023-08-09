@@ -66,7 +66,7 @@ if(isset($_POST["submit"])){
                 <input type="text" name="gambar" id="gambar"  value="<?= $smartphone["gambar"];?>">
             </li>
             <li>
-                <button type="submit" name="submit">Add Data</button>
+                <button type="submit" name="submit">Selesai</button>
             </li>
         </ul>
     </form>
