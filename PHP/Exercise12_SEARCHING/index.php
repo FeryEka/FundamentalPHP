@@ -4,8 +4,8 @@
     $smartphones = query("SELECT * FROM smartphones");
 
     // tombol cari ditekan
-    if( isset($_POST["cari"]) ) {
-        $mahasiswa = search($_POST["keyword"]);
+    if( isset($_POST["search"]) ) {
+        $smartphones = search($_POST["keyword"]);
     }
 ?>
 
