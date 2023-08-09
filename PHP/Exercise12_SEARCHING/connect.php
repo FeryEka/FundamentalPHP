@@ -80,10 +80,14 @@
     }
 
     function search($keyword){
-        global $conn;
         $query ="SELECT * FROM smartphones
                     WHERE
-                 nama = '$keyword'
+                 nama LIKE '%$keyword%'
+                 merek LIKE '%$keyword%' OR
+                 chipset LIKE '%$keyword%' OR
+                 ram LIKE '%$keyword%' OR
+                 harga LIKE '%$keyword%' OR
                 ";
+        return query($query);
     }
 ?>
