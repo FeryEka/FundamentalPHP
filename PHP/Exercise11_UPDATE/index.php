@@ -39,7 +39,7 @@
             <td><?= $smartphone["harga"]; ?></td>
             <td><img src="img/<?= $smartphone["gambar"]; ?>" alt="" style="width: 50px; height:50px;"></td>
             <td>
-                <a href="update.php">Edit</a> |
+                <a href="update.phpid=<?= $smartphone["id"]; ?>">Edit</a> |
                 <a href="delete.php?id=<?= $smartphone["id"]; ?>" onclick="return confirm('Yakin Ingin Menghapus data ini?')">Delete</a>
             </td>
         </tr>

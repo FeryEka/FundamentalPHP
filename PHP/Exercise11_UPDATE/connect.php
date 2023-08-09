@@ -52,4 +52,30 @@
         mysqli_query($conn, "DELETE FROM smartphones WHERE id = $id");
         return mysqli_affected_rows($conn);
     }
+
+    function update($data){
+        global $conn;
+        // ambil data dari tiap elemen dalam form
+        $id = $data["id"];
+        $nama = htmlspecialchars($data["nama"]);
+        $merek = htmlspecialchars($data["merek"]);
+        $chipset = htmlspecialchars($data["chipset"]);
+        $ram = htmlspecialchars($data["ram"]);
+        $harga = htmlspecialchars($data["harga"]);
+        $gambar = htmlspecialchars($data["gambar"]);
+
+        // query insert data
+        $query ="UPDATE smartphones SET 
+                    nama = '$nama',
+                    merek = '$merek',
+                    chipset = '$chipset',
+                    ram = '$ram',
+                    harga = '$harga',
+                    gambar = '$gambar'
+                 WHERE id = $id
+                ";
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
 ?>
