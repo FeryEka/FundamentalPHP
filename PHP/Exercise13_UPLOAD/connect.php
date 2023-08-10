@@ -35,7 +35,12 @@
         $chipset = htmlspecialchars($data["chipset"]);
         $ram = htmlspecialchars($data["ram"]);
         $harga = htmlspecialchars($data["harga"]);
-        $gambar = htmlspecialchars($data["gambar"]);
+
+        // upload gambar
+        $gambar = upload();
+        if( !$gambar ){
+            return false;
+        }
 
         // query insert data
         $query ="INSERT INTO smartphones 
@@ -89,5 +94,53 @@
                  harga LIKE '%$keyword%'
                 ";
         return query($query);
+    }
+
+    function upload(){
+        $namaFile = $_FILES['gambar']['name'];
+        $ukuranFile = $_FILES['gambar']['size'];
+        $error = $_FILES['gambar']['error'];
+        $tmpName = $_FILES['gambar']['tmp_name'];
+
+        // cek apakah tidak ada gambar di upload
+        if( $error === 4 ){
+            echo "<script>
+                    alert('pilih gambar terlebih dahulu!');
+                  </script>
+            ";
+            return false;
+        }
+
+        // cek apakah yang di upload adalah gambar
+        $ekstensiGambarValid = ['jpg', 'png', 'jpeg'];
+        
+        // explode sebuah fungsi untuk memecah sebuah string menjadi array (memecahnya menggunakan demiliter) ex:explode(demiliter, string);
+        $ekstensiGambar = explode('.', $namaFile);
+        
+        // strtolower() digunakan untuk memaksa string menjadi huruf kecil
+        // end() digunakan untuk memastikan mengambil array yang paling akhir
+        $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+        // in_array merupakan fungsi untuk mencari string di dalam array ex: in_array(namanya apa, yang dicari apa)
+        if( !in_array($ekstensiGambar, $ekstensiGambarValid) ){
+            echo "<script>
+                    alert('gambar gagal di upload. pastikan sudah sesuai dengan aturan!');
+                  </script>
+            ";
+            return false;
+        }
+
+        // cek jika ukuran terlalu besar
+        if ( $ukuranFile > 5242880 ){
+            echo "<script>
+                    alert('ukuran gambar terlalu besar!');
+                  </script>
+            ";
+            return false;
+        }
+
+        //  lolos pengecekan, gambar siap di upload
+        move_uploaded_file($tmpName, 'img/' . $namaFile);
+        return $namaFile;
     }
 ?>
