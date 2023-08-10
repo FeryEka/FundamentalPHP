@@ -67,7 +67,15 @@
         $chipset = htmlspecialchars($data["chipset"]);
         $ram = htmlspecialchars($data["ram"]);
         $harga = htmlspecialchars($data["harga"]);
-        $gambar = htmlspecialchars($data["gambar"]);
+        $gambarLama = $data["gambarLama"];
+        
+        // cek apakah user pilih gambar baru atau tidak
+        if( $_FILES['gambar']['error'] === 4){
+            $gambar = $gambarLama;
+        } else {
+            $gambar = htmlspecialchars($data["gambar"]);
+        }
+        
 
         // query insert data
         $query ="UPDATE smartphones SET 
