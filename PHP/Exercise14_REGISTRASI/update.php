@@ -13,17 +13,17 @@ if(isset($_POST["submit"])){
     // cek apakah data berhasil diubah atau tidak
     if( update($_POST) > 0){
         echo "
-                <script>
-                    alert('Data berhasil diubah!');
-                    document.location.href = 'index.php';
-                </script>
+        <script>
+            alert('data berhasil update');
+            document.location.href = 'index.php';
+        </script>
         ";
-    }else{
+    } else {
         echo "
-            <script>
-                alert('Data berhasil diubah!');
-                document.location.href = 'index.php';
-            </script>
+        <script>
+            alert('data gagal update');
+            document.location.href = 'index.php';
+        </script>
         ";
     }
 }

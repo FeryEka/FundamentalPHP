@@ -156,4 +156,42 @@
         move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
         return $namaFileBaru;
     }
+
+    function registrasi($data){
+        global $conn;
+
+        $username = strtolower(stripslashes($data["username"]));
+
+        $password = mysqli_real_escape_string($conn, $data["password"]);
+        
+        $verifPassword = mysqli_real_escape_string($conn, $data["verifpassword"]);
+
+        // cek username sudah ada atau belum
+        $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+        if(mysqli_fetch_assoc($result)){
+            echo "<script>
+                    alert('username sudah terdaftar!');
+                  </script>
+            ";
+            return false;
+        }
+
+        // cek konfirmasi password
+        if ($password !== $verifPassword){
+            echo "<script>
+                    alert('konfirmasi password tidak sesuai!');
+                  </script>
+            ";
+            return false;
+        }
+
+        // ENKRIPSI password
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        
+        // tambahkan user baru ke database
+        mysqli_query($conn, "INSERT INTO users VALUES('', '$username', '$password')");
+
+        return mysqli_affected_rows($conn);
+
+    }
 ?>

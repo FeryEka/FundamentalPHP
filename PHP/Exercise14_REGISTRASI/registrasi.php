@@ -1,20 +1,14 @@
 <?php
 require 'connect.php';
     if( isset($_POST["register"]) ){
-        if( register($_POST) > 0 ){
+        if( registrasi($_POST) > 0 ){
             echo "
-                <script>
-                    alert('user baru berhasil ditambahkan!');
-                    document.location.href = 'index.php';
-                </script>
-        ";
-        } else {
-            echo "
-                <script>
-                    alert('Data berhasil ditambahkan!');
-                    document.location.href = 'index.php';
-                </script>
+            <script>
+                alert('user baru berhasil ditambahkan!');
+            </script>
             ";
+        } else {
+            echo mysqli_error($conn);
         }
     }
 ?>
