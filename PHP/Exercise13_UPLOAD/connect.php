@@ -140,7 +140,12 @@
         }
 
         //  lolos pengecekan, gambar siap di upload
-        move_uploaded_file($tmpName, 'img/' . $namaFile);
-        return $namaFile;
+        // generate nama baru unik agar nama gambar tidak saling bertabrakan / menumpuk
+        $namaFileBaru = uniqid();
+        $namaFileBaru .= '.';
+        $namaFileBaru .= $ekstensiGambar;
+
+        move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+        return $namaFileBaru;
     }
 ?>
