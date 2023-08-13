@@ -1,14 +1,20 @@
 <?php
 require 'connect.php';
-    if( isset($_POST["register"]) ){
-        if( registrasi($_POST) > 0 ){
-            echo "
-            <script>
-                alert('user baru berhasil ditambahkan!');
-            </script>
-            ";
-        } else {
-            echo mysqli_error($conn);
+    if( isset($_POST["login"]) ){
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+
+        // cek username
+        if( mysqli_num_rows($result) === 1 ){
+            
+            // cek password
+            $row = mysqli_fetch_row($result);
+            if(password_verify($password, $row["password"])){
+                header("Location:index.php");
+                exit;
+            }
         }
     }
 ?>
@@ -39,7 +45,7 @@ require 'connect.php';
                 <input type="password" name="password" id="password" require>
             </li>
             <li>
-                <button type="submit" name="register">Login</button>
+                <button type="submit" name="login">Login</button>
             </li>
         </ul>
     </form>
