@@ -4,18 +4,20 @@ require 'connect.php';
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+        $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
         // cek username
         if( mysqli_num_rows($result) === 1 ){
             
             // cek password
-            $row = mysqli_fetch_row($result);
+            $row = mysqli_fetch_assoc($result);
             if(password_verify($password, $row["password"])){
                 header("Location:index.php");
                 exit;
             }
         }
+
+        $error = true;
     }
 ?>
 
@@ -25,6 +27,10 @@ require 'connect.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Login</title>
+    <?php if( isset($error)) : ?>
+        <p style="color:red; font-style:italic;">username / password salah!</p>
+    <?php endif; ?>
+
     <style>
         label {
             display: block;
