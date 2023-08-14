@@ -46,6 +46,23 @@
         <input type="search" name="keyword" size="40" placeholder="masukkan keyword pencarian..." autocomplete="off" autofocus>
         <button type="submit" name="search">search</button>
     </form>
+
+    <!-- Navigasi -->
+
+    <?php if($halamanAktif > 1): ?>
+    <a href="?halaman=<?= $halamanAktif - 1; ?>">&lt;</a>
+    <?php endif; ?>
+    <?php for($i=1; $i <= $jumlahHalaman; $i++): ?>
+        <?php if( $i = $halamanAktif) :?>
+            <a style="font-weight:bold; color:blue;" href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <?php else : ?>
+            <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <?php endif; ?>
+    <?php endfor; ?>
+    <?php if($halamanAktif < $jumlahHalaman): ?>
+    <a href="?halaman=<?= $halamanAktif + 1; ?>">&gt;</a>
+    <?php endif; ?>
+
     <br>
 
     <table border="1" cellpadding="10" cellspacing="0">
