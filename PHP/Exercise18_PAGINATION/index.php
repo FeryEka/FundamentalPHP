@@ -8,7 +8,19 @@
         
     // menggubungkan ke file connect.php
     require 'connect.php';
-    $smartphones = query("SELECT * FROM smartphones");
+
+    // pagination
+    // konfigurasi
+    $jumlahDataPerHalaman = 3;
+    $jumlahData = count(query("SELECT * FROM smartphones"));
+    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+    // operator ternari pengganti if jika hanya memiliki 2 kondisi
+    $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
+    $awalData = ( $jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+    
+
+
+    $smartphones = query("SELECT * FROM smartphones LIMIT $awalData, $jumlahDataPerHalaman");
 
     // tombol cari ditekan
     if( isset($_POST["search"]) ) {
