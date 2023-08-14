@@ -24,6 +24,7 @@
     <title>Halaman Admin</title>
 </head>
 <body>
+    <a href="logout.php">Logout</a>
     <h1>Daftar Smartphones</h1>
 
     <a href="add.php">Tambah data list smartphone</a>
