@@ -40,8 +40,8 @@ require 'connect.php';
                 // cek rememberme
                 if( isset($_POST["remember"])){
                     // buat cookie
-                    setcookie('id', $row['id'], time()+3600);
-                    setcookie('key', hash('sha256', $row['username']), time()+3600);
+                    setcookie('id', $row['id'], time()+1800);
+                    setcookie('key', hash('sha256', $row['username']), time()+1800);
                 }
                 
                 header("Location:index.php");
