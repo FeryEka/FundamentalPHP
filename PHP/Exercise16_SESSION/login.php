@@ -1,5 +1,11 @@
 <?php
-require 'connect.php';
+    session_start();
+        if( isset($_SESSION["login"]) ){
+            header("Location:index.php");
+            exit;
+        }
+
+    require 'connect.php';
     if( isset($_POST["login"]) ){
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -8,10 +14,13 @@ require 'connect.php';
 
         // cek username
         if( mysqli_num_rows($result) === 1 ){
-            
             // cek password
             $row = mysqli_fetch_assoc($result);
             if(password_verify($password, $row["password"])){
+                // set session
+                $_SESSION["lohin"] = true;
+                
+
                 header("Location:index.php");
                 exit;
             }

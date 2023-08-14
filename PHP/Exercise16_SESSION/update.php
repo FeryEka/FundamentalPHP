@@ -1,32 +1,32 @@
 <?php
-// menggubungkan ke file connect.php
-require 'connect.php';
+    // menggubungkan ke file connect.php
+    require 'connect.php';
 
-// ambil data dari URL
-$id = $_GET["id"];
+    // ambil data dari URL
+    $id = $_GET["id"];
 
-// query data smartphone berdasarkan id
-$smartphone = query("SELECT * FROM smartphones WHERE id = $id")[0];
+    // query data smartphone berdasarkan id
+    $smartphone = query("SELECT * FROM smartphones WHERE id = $id")[0];
 
-// cek apakah tombol submit telah ditekan atau belum 
-if(isset($_POST["submit"])){
-    // cek apakah data berhasil diubah atau tidak
-    if( update($_POST) > 0){
-        echo "
-        <script>
-            alert('data berhasil update');
-            document.location.href = 'index.php';
-        </script>
-        ";
-    } else {
-        echo "
-        <script>
-            alert('data gagal update');
-            document.location.href = 'index.php';
-        </script>
-        ";
+    // cek apakah tombol submit telah ditekan atau belum 
+    if(isset($_POST["submit"])){
+        // cek apakah data berhasil diubah atau tidak
+        if( update($_POST) > 0){
+            echo "
+            <script>
+                alert('data berhasil update');
+                document.location.href = 'index.php';
+            </script>
+            ";
+        } else {
+            echo "
+            <script>
+                alert('data gagal update');
+                document.location.href = 'index.php';
+            </script>
+            ";
+        }
     }
-}
 ?>
 
 <!DOCTYPE html>

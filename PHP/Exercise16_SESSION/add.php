@@ -1,26 +1,32 @@
 <?php
-// menggubungkan ke file connect.php
-require 'connect.php';
+    session_start();
+    // menggubungkan ke file connect.php
+    require 'connect.php';
 
-// cek apakah tombol submit telah ditekan atau belum 
-if(isset($_POST["submit"])){
-    // cek apakah data berhasil ditambahkan atau tidak
-    if( add($_POST) > 0){
-        echo "
+    if( isset($_SESSION["login"]) ){
+        header("Location:login.php");
+        exit;
+    }
+
+    // cek apakah tombol submit telah ditekan atau belum 
+    if(isset($_POST["submit"])){
+        // cek apakah data berhasil ditambahkan atau tidak
+        if( add($_POST) > 0){
+            echo "
+                    <script>
+                        alert('Data berhasil ditambahkan!');
+                        document.location.href = 'index.php';
+                    </script>
+            ";
+        }else{
+            echo "
                 <script>
                     alert('Data berhasil ditambahkan!');
                     document.location.href = 'index.php';
                 </script>
-        ";
-    }else{
-        echo "
-            <script>
-                alert('Data berhasil ditambahkan!');
-                document.location.href = 'index.php';
-            </script>
-        ";
+            ";
+        }
     }
-}
 ?>
 
 <!DOCTYPE html>

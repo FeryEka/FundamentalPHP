@@ -1,4 +1,11 @@
 <?php
+    session_start();
+
+        if( isset($_SESSION["login"]) ){
+            header("Location:login.php");
+            exit;
+        }
+        
     // menggubungkan ke file connect.php
     require 'connect.php';
     $smartphones = query("SELECT * FROM smartphones");
