@@ -50,7 +50,7 @@
     <!-- Navigasi -->
 
     <?php if($halamanAktif > 1): ?>
-    <a href="?halaman=<?= $halamanAktif - 1; ?>">&lt;</a>
+    <a href="?halaman=<?= $halamanAktif - 1; ?>">&laquo;</a>
     <?php endif; ?>
     <?php for($i=1; $i <= $jumlahHalaman; $i++): ?>
         <?php if( $i = $halamanAktif) :?>
@@ -60,7 +60,7 @@
         <?php endif; ?>
     <?php endfor; ?>
     <?php if($halamanAktif < $jumlahHalaman): ?>
-    <a href="?halaman=<?= $halamanAktif + 1; ?>">&gt;</a>
+    <a href="?halaman=<?= $halamanAktif + 1; ?>">&raquo;</a>
     <?php endif; ?>
 
     <br>
