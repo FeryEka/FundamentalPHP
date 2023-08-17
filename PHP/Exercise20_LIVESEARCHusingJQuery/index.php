@@ -22,6 +22,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
+    <style>
+        .loader {
+            width:100px;
+            position:absolute;
+            top:113px;
+            left: 280px;
+            z-index:-1;
+        }
+    </style>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <a href="logout.php">Logout</a>
@@ -33,6 +44,7 @@
     <form action="" method="post">
         <input type="search" name="keyword" size="40" placeholder="masukkan keyword pencarian..." autocomplete="off" autofocus id="keyword">
         <button type="submit" name="search" id="tombol-cari">search</button>
+        <img class="loader" src="img/loader.gif">
     </form>
     <br>
     <div id="container">
@@ -67,8 +79,6 @@
         <?php endforeach; ?>
     </table>
     </div>
-    <script src="js/jquery-3.7.0.min.js"></script>
-
-    <script src="js/script.js"></script>
+    
 </body>
 </html>
