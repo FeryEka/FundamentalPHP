@@ -16,6 +16,6 @@ keyword.addEventListener('keypress', function () {
     }
 
     // eksekusi ajax
-    xhr.open('GET', 'ajax/coba.txt', true);
+    xhr.open('GET', 'ajax/smartphones.php?keyword=' + keyword.value, true);
     xhr.send();
 })
