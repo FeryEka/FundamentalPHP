@@ -31,11 +31,11 @@
     <br><br>
 
     <form action="" method="post">
-        <input type="search" name="keyword" size="40" placeholder="masukkan keyword pencarian..." autocomplete="off" autofocus>
-        <button type="submit" name="search">search</button>
+        <input type="search" name="keyword" size="40" placeholder="masukkan keyword pencarian..." autocomplete="off" autofocus id="keyword">
+        <button type="submit" name="search" id="tombol-cari">search</button>
     </form>
     <br>
-
+    <div id="container">
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
@@ -66,5 +66,8 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
