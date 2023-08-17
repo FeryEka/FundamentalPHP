@@ -1,5 +1,6 @@
 jQuery(document).ready(function() {
-    // hilangkan tombol cari
+    // hilangkan tombol cari dan class loader
+    $('.loader').hide();
     $('#tombol-cari').hide();
 
     // event katika keyword dituliskan
@@ -12,7 +13,7 @@ jQuery(document).ready(function() {
 
         // $.get()
         // 
-        $.get('ajax/smartphones.php?keyword=' + $('#keyword').val(), function(){
+        $.get('ajax/smartphones.php?keyword=' + $('#keyword').val(), function(data){
             $('#container').html(data);
             $('.loader').hide();
         });

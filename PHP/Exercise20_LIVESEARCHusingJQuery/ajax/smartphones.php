@@ -1,4 +1,5 @@
 <?php
+usleep(300000);
     require '../connect.php';
     $keyword = $_GET["keyword"];
     $query = "SELECT * FROM smartphones
