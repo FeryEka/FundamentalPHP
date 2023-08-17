@@ -4,7 +4,7 @@ var tombolCari = document.getElementById('tombol-cari');
 var container = document.getElementById('container');
 
 // tambahkan event ketika keyword ditulis
-keyword.addEventListener('keyup', function () {
+keyword.addEventListener('keypress', function () {
     // buat object ajax
     var xhr = new XMLHttpRequest();
     
