@@ -4,6 +4,17 @@ jQuery(document).ready(function() {
 
     // event katika keyword dituliskan
     jQuery('#keyword').on('keyup', function(){
-        jQuery('#container').load('ajax/smartphones.php?keyword=' + jQuery('#keyword'.val()))
+        // munculkan icon loading
+        $('.loader').show();
+        
+        // ajax menggunakan load
+        // jQuery('#container').load('ajax/smartphones.php?keyword=' + jQuery('#keyword'.val()))
+
+        // $.get()
+        // 
+        $.get('ajax/smartphones.php?keyword=' + $('#keyword').val(), function(){
+            $('#container').html(data);
+            $('.loader').hide();
+        });
     })
 });
