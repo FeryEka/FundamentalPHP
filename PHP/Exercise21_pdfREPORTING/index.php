@@ -30,18 +30,24 @@
             left: 280px;
             z-index:-1;
         }
+
+        @media print {
+            .logout, .add, .form-cari, .aksi {
+                display: none;
+            }
+        }
     </style>
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body>
-    <a href="logout.php">Logout</a>
+    <a href="logout.php" class="logout">Logout</a>
     <h1>Daftar Smartphones</h1>
 
-    <a href="add.php">Tambah data list smartphone</a>
+    <a href="add.php" class="add">Tambah data list smartphone</a>
     <br><br>
 
-    <form action="" method="post">
+    <form action="" method="post" class="form-cari">
         <input type="search" name="keyword" size="40" placeholder="masukkan keyword pencarian..." autocomplete="off" autofocus id="keyword">
         <button type="submit" name="search" id="tombol-cari">search</button>
         <img class="loader" src="img/loader.gif">
@@ -57,7 +63,7 @@
             <th>Ram</th>
             <th>Harga</th>
             <th>Gambar</th>
-            <th>Aksi</th>
+            <th class="aksi">Aksi</th>
         </tr>
 
         <?php $i = 1; ?>
@@ -70,7 +76,7 @@
             <td><?= $smartphone["ram"]; ?></td>
             <td><?= $smartphone["harga"]; ?></td>
             <td><img src="img/<?= $smartphone["gambar"]; ?>" alt="" style="width: 50px; height:50px;"></td>
-            <td>
+            <td class="aksi">
                 <a href="update.php?id=<?= $smartphone["id"]; ?>">Edit</a> |
                 <a href="delete.php?id=<?= $smartphone["id"]; ?>" onclick="return confirm('Yakin Ingin Menghapus data ini?')">Delete</a>
             </td>
