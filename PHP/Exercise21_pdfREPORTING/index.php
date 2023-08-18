@@ -41,7 +41,7 @@
     <script src="js/script.js"></script>
 </head>
 <body>
-    <a href="logout.php" class="logout">Logout</a>
+    <a href="logout.php" class="logout">Logout</a> | <a href="cetak.php">Cetak</a>
     <h1>Daftar Smartphones</h1>
 
     <a href="add.php" class="add">Tambah data list smartphone</a>
