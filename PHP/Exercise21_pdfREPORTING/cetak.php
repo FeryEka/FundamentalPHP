@@ -9,6 +9,7 @@ require 'connect.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Daftar Mahasiswa</title>
+        <link rel="stylesheet" href="css/print.css">
     </head>
     <body>
         <h1>Daftar Mahasiswa</h1>
@@ -41,6 +42,6 @@ require 'connect.php';
     ';
 $mpdf = new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
-$mpdf->Output();
+$mpdf->Output('list-smartphone', \Mpdf\Output\Destination::INLINE);
 
 ?>
