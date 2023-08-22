@@ -23,6 +23,7 @@ require 'connect.php';
                 <th>Gambar</th>
             </tr>';
             
+            $i = 1;
             foreach ( $smartphones as $smartphone ) {
                 $html .= '<tr>
                 <td>'. $i++ .'</td>
