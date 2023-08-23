@@ -10,9 +10,10 @@
                $penerbit = "penerbitan",
                $harga = 0;
 
-        // membuat method
-        public function sayHello() {
-            return "Hello Wordl!";
+        // membuat method (sebenernya function kalo di dalam class penyebutannya method)
+        public function getLabel() {
+            // $this-> akan mengacu pada variable pada property class
+            return "$this->penulis, $this->penerbit";
         }
     }
 
@@ -32,6 +33,14 @@
     $produk3->penerbit = "Shonen Jump";
     $produk3->harga = 30000;
 
-    echo "Komik: $produk3->penulis, $produk3->3"
+    $produk4 = new Produk();
+    $produk4->judul = "Genshin Impact";
+    $produk4->penulis = "Dawei";
+    $produk4->penerbit = "Hoyoverse";
+    $produk4->harga = 0;
+
+    echo "Komik : " . $produk3->getLabel();
+    echo "<br>";
+    echo "Game : " . $produk4->getLabel();
 
 ?>
