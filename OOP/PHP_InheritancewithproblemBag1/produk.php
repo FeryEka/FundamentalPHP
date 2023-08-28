@@ -44,6 +44,14 @@ use Produk as GlobalProduk;
         }
     }
 
+    class Komik extends Produk {
+
+    }
+
+    class Game Extends Produk {
+        
+    }
+
     class CetakInfoProduk {
         public function cetak( Produk $produk ) {
             $str = "{$produk->judul} | {$produk->getLabel()} (Rp. $produk->harga)";
