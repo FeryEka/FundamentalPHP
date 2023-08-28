@@ -10,18 +10,14 @@ use Produk as GlobalProduk;
         public $judul, 
                $penulis,
                $penerbit,
-               $harga,
-               $jmlHalaman,
-               $waktuMain;
+               $harga;
 
         // Membuat Construct
-        public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $jmlHalaman = 0, $waktuMain = 0){
+        public function __construct($judul, $penulis, $penerbit, $harga){
             $this->judul = $judul;
             $this->penulis = $penulis;
             $this->penerbit = $penerbit;
             $this->harga = $harga;
-            $this->jmlHalaman = $jmlHalaman;
-            $this->waktuMain = $waktuMain;
         }
 
         // membuat method (sebenernya function kalo di dalam class penyebutannya method)
@@ -37,17 +33,34 @@ use Produk as GlobalProduk;
         }
     }
 
+    // child
     class Komik extends Produk {
+        public $jmlHalaman;
+
+        public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $jmlHalaman = 0){
+            parent::__construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0);
+            
+            $this->jmlHalaman = $jmlHalaman;
+        }
+
         public function getInfoProduk() {
-            $str = "Komik : {$this->judul} | {$this->getLabel()} (Rp. {$this->harga}) - {$this->jmlHalaman} Halaman.";
+            $str = "Komik : " . parent::getInfoProduk() . " - {$this->jmlHalaman} Halaman.";
             return $str;
             
         }
     }
 
     class Game Extends Produk {
+        public $waktuMain;
+
+        public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $waktuMain = 0){
+            parent::__construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0);
+            
+            $this->waktuMain = $waktuMain;
+        }
+
         public function getInfoProduk() {
-            $str = "Game : {$this->judul} | {$this->getLabel()} (Rp. {$this->harga}) - {$this->waktuMain} Jam.";
+            $str = "Game : " . parent::getInfoProduk() . " - {$this->waktuMain} Jam.";
             return $str;
             
         }
@@ -61,8 +74,8 @@ use Produk as GlobalProduk;
     }
 
     // Object
-    $produk1 = new Komik("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000, 100, 0);
-    $produk2 = new Game("Genshin Impact", "Dawei", "Hoyoverse", 0, 0, 50);
+    $produk1 = new Komik("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000, 100);
+    $produk2 = new Game("Genshin Impact", "Dawei", "Hoyoverse", 0, 50);
 
     echo $produk1->getInfoProduk();
     echo "<br>";
