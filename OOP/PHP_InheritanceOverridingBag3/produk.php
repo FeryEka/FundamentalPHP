@@ -13,7 +13,7 @@ use Produk as GlobalProduk;
                $harga;
 
         // Membuat Construct
-        public function __construct($judul, $penulis, $penerbit, $harga){
+        public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0){
             $this->judul = $judul;
             $this->penulis = $penulis;
             $this->penerbit = $penerbit;
@@ -33,12 +33,12 @@ use Produk as GlobalProduk;
         }
     }
 
-    // child
+    // child dari class Produk yang spesifik ke untuk Komik
     class Komik extends Produk {
         public $jmlHalaman;
 
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $jmlHalaman = 0){
-            parent::__construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0);
+            parent::__construct($judul, $penulis, $penerbit, $harga);
             
             $this->jmlHalaman = $jmlHalaman;
         }
@@ -50,11 +50,12 @@ use Produk as GlobalProduk;
         }
     }
 
+    // child dari class Produk yang spesifik ke untuk Game
     class Game Extends Produk {
         public $waktuMain;
 
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $waktuMain = 0){
-            parent::__construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0);
+            parent::__construct($judul, $penulis, $penerbit, $harga);
             
             $this->waktuMain = $waktuMain;
         }
