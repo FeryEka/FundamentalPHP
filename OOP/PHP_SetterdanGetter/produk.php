@@ -7,15 +7,12 @@ use Produk as GlobalProduk;
 
     class Produk {
         // membuat property dan dapat diisi nilainya sebagai default
-        public $judul, 
+        // property dengan visibility private yang propertynya hanya dapat diakses di class itu sendiri
+        private $judul, 
                $penulis,
-               $penerbit;
-
-        // property dengan visibility private yang propertynya hanya dapat diakses di class itu sendiri 
-        private $harga;
-                
-        // property dengan visibility protected yang propertynya hanya dapat diakses oleh child dan parent itu sendiri
-        protected $diskon = 0;
+               $penerbit,
+               $harga,
+               $diskon = 0;
 
         // Membuat Construct
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0){
@@ -25,8 +22,46 @@ use Produk as GlobalProduk;
             $this->harga = $harga;
         }
 
+        // contoh method setter
+        public function setJudul( $judul ){
+            $this->judul = $judul;
+        }
+
+        // contoh method getter
+        public function getJudul(){
+            return $this->judul;
+        }
+
+        public function setPenulis( $penulis ){
+            $this->penulis = $penulis;
+        }
+
+        public function getPenulis(){
+            return $this->penulis;
+        }
+
+        public function setPenerbit( $penerbit ){
+            $this->penerbit = $penerbit;
+        }
+
+        public function getPenerbit(){
+            return $this->penerbit;
+        }
+
+        public function setHarga( $harga ){
+            $this->harga = $harga;
+        }
+
         public function getHarga(){
             return $this->harga = ( $this->harga * $this->diskon / 100);
+        }
+
+        public function setDiskon( $diskon ){
+            $this->diskon = $diskon;
+        }
+
+        public function getDiskon(){
+            return $this->diskon;
         }
 
         // membuat method (sebenernya function kalo di dalam class penyebutannya method)
@@ -69,10 +104,6 @@ use Produk as GlobalProduk;
             $this->waktuMain = $waktuMain;
         }
 
-        public function setDiskon( $diskon ){
-            $this->diskon = $diskon;
-        }
-
         public function getInfoProduk() {
             $str = "Game : " . parent::getInfoProduk() . " - {$this->waktuMain} Jam.";
             return $str;
@@ -99,5 +130,7 @@ use Produk as GlobalProduk;
 
     $produk3->setDiskon(50);
     echo $produk3->getHarga();
+
+    echo $produk3->getJudul();
 
 ?>
