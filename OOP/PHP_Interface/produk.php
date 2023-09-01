@@ -3,12 +3,17 @@
     // Komik
     // Game
 
+    // instantiate class interface
+    interface InfoProduk {
+        public function getInfoProduk();
+    }
+
 use Produk as GlobalProduk;
     // instantiate class abstract
     abstract class Produk {
         // membuat property dan dapat diisi nilainya sebagai default
-        // property dengan visibility private yang propertynya hanya dapat diakses di class itu sendiri
-        private $judul, 
+        // property dengan visibility protected yang propertynya hanya dapat diakses di class dan turunannya sendiri
+        protected $judul, 
                $penulis,
                $penerbit,
                $harga,
@@ -70,23 +75,23 @@ use Produk as GlobalProduk;
             return "$this->penulis, $this->penerbit";
         }
 
-        abstract public function getInfoProduk();
-        
-        public function getInfo() {
-            //  Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
-            $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
-            return $str;
-        }
+        abstract public function getInfo();
     }
 
     // child dari class Produk yang spesifik ke untuk Komik
-    class Komik extends Produk {
+    class Komik extends Produk implements InfoProduk {
         public $jmlHalaman;
 
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $jmlHalaman = 0){
             parent::__construct($judul, $penulis, $penerbit, $harga);
             
             $this->jmlHalaman = $jmlHalaman;
+        }
+
+        public function getInfo() {
+            //  Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
+            $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+            return $str;
         }
 
         public function getInfoProduk() {
@@ -97,13 +102,19 @@ use Produk as GlobalProduk;
     }
 
     // child dari class Produk yang spesifik ke untuk Game
-    class Game Extends Produk {
+    class Game Extends Produk implements InfoProduk {
         public $waktuMain;
 
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $waktuMain = 0){
             parent::__construct($judul, $penulis, $penerbit, $harga);
             
             $this->waktuMain = $waktuMain;
+        }
+
+        public function getInfo() {
+            //  Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
+            $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+            return $str;
         }
 
         public function getInfoProduk() {
