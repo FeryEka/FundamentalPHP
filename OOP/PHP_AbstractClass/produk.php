@@ -4,8 +4,8 @@
     // Game
 
 use Produk as GlobalProduk;
-
-    class Produk {
+    // instantiate class abstract
+    abstract class Produk {
         // membuat property dan dapat diisi nilainya sebagai default
         // property dengan visibility private yang propertynya hanya dapat diakses di class itu sendiri
         private $judul, 
@@ -70,7 +70,9 @@ use Produk as GlobalProduk;
             return "$this->penulis, $this->penerbit";
         }
 
-        public function getInfoProduk() {
+        abstract public function getInfoProduk();
+        
+        public function getInfo() {
             //  Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
             $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
             return $str;
@@ -88,7 +90,7 @@ use Produk as GlobalProduk;
         }
 
         public function getInfoProduk() {
-            $str = "Komik : " . parent::getInfoProduk() . " - {$this->jmlHalaman} Halaman.";
+            $str = "Komik : " . $this->getInfo() . " - {$this->jmlHalaman} Halaman.";
             return $str;
             
         }
@@ -105,15 +107,26 @@ use Produk as GlobalProduk;
         }
 
         public function getInfoProduk() {
-            $str = "Game : " . parent::getInfoProduk() . " - {$this->waktuMain} Jam.";
+            $str = "Game : " . $this->getInfo() . " - {$this->waktuMain} Jam.";
             return $str;
             
         }
     }
 
     class CetakInfoProduk {
-        public function cetak( Produk $produk ) {
-            $str = "{$produk->judul} | {$produk->getLabel()} (Rp. $produk->harga)";
+        public $daftarProduk = [];
+        
+        public function tambahProduk( Produk $produk ){
+            $this->daftarProduk[] = $produk;
+        }
+
+        public function cetak() {
+            $str = "DAFTAR PRODUK : <br>";
+
+            foreach( $this->daftarProduk as $p ){
+                $str .= "- {$p->getInfoProduk()}<br>";
+            }
+
             return $str;
         }
     }
@@ -123,14 +136,9 @@ use Produk as GlobalProduk;
     $produk2 = new Game("Genshin Impact", "Dawei", "Hoyoverse", 0, 50);
     $produk3 = new Game("Resident Evil 4 Remake", "Shinji Mikami dan Haruo Murata", "Capcom", 831000, 24);
 
-    echo $produk1->getInfoProduk();
-    echo "<br>";
-    echo $produk2->getInfoProduk();
-    echo "<hr>";
-
-    $produk3->setDiskon(50);
-    echo $produk3->getHarga();
-
-    echo $produk3->getJudul();
-
+    $cetakProduk = new CetakInfoProduk();
+    $cetakProduk->tambahProduk( $produk1 );
+    $cetakProduk->tambahProduk( $produk2 );
+    $cetakProduk->tambahProduk( $produk3 );
+    echo $cetakProduk->cetak();
 ?>
