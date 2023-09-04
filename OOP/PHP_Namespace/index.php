@@ -13,8 +13,7 @@
     echo "<br>";
     echo "<hr><br>";
 
-    // menerapkan alias pada namespace
-
+    // menerapkan alias pada namespace 
     use App\Service\user as ServiceUser;
     use App\Produk\user as ProdukUser;
 
