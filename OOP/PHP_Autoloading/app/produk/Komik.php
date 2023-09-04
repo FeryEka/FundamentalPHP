@@ -1,4 +1,5 @@
-class Komik extends Produk implements InfoProduk {
+<?php
+    class Komik extends Produk implements InfoProduk {
         public $jmlHalaman;
 
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $jmlHalaman = 0){
@@ -19,3 +20,4 @@ class Komik extends Produk implements InfoProduk {
             
         }
     }
+?>

@@ -1,4 +1,5 @@
-abstract class Produk {
+<?php
+    abstract class Produk {
         // membuat property dan dapat diisi nilainya sebagai default
         // property dengan visibility protected yang propertynya hanya dapat diakses di class dan turunannya sendiri
         protected $judul, 
@@ -65,3 +66,4 @@ abstract class Produk {
 
         abstract public function getInfo();
     }
+?>

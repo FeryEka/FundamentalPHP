@@ -1,4 +1,5 @@
-class CetakInfoProduk {
+<?php
+    class CetakInfoProduk {
         public $daftarProduk = [];
         
         public function tambahProduk( Produk $produk ){
@@ -15,3 +16,4 @@ class CetakInfoProduk {
             return $str;
         }
     }
+?>

@@ -1,4 +1,5 @@
-class Game Extends Produk implements InfoProduk {
+<?php
+    class Game Extends Produk implements InfoProduk {
         public $waktuMain;
 
         public function __construct($judul = "judul", $penulis = "penulisan", $penerbit = "penerbitan", $harga = 0, $waktuMain = 0){
@@ -19,3 +20,4 @@ class Game Extends Produk implements InfoProduk {
             
         }
     }
+?>
