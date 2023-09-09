@@ -21,17 +21,17 @@
         }
 
         public function tambahDataSmartphone($data){
-            $query = "INSERT INTO mahasiswa 
+            $query = "INSERT INTO smartphones 
                         VALUES
-                        ('' :nama, :merek, :chipset, :ram, :harga, :gambar)";
+                        ('', :nama, :merek, :chipset, :ram, :harga, :gambar)";
 
             $this->db->query($query);
             $this->db->bind('nama', $data['nama']);
             $this->db->bind('merek', $data['merek']);
-            $this->db->bind('chipset', $data['nama']);
-            $this->db->bind('ram', $data['nama']);
-            $this->db->bind('harga', $data['nama']);
-            $this->db->bind('gambar', $data['nama']);
+            $this->db->bind('chipset', $data['chipset']);
+            $this->db->bind('ram', $data['ram']);
+            $this->db->bind('harga', $data['harga']);
+            $this->db->bind('gambar', $data['gambar']);
 
             $this->db->execute();
 
