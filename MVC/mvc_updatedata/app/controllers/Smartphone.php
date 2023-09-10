@@ -40,8 +40,8 @@
             }
         }
 
-        public function getUbah(){
-            json_encode($this->model('Smartphone_model')->getSmartphoneById($_POST['id']));
+        public function getubah(){
+            echo json_encode($this->model('Smartphone_model')->getSmartphoneById($_POST['id']));
         }
 
         public function ubah(){

@@ -51,7 +51,7 @@
                 <select class="form-select" aria-label="Default select example" id="merek" name="merek">
                     <option selected>Open this select menu</option>
                     <option value="Samsung">Samsung</option>
-                    <option value="Iphone">Iphone</option>
+                    <option value="Apple">Apple</option>
                     <option value="Google">Google</option>
                     <option value="OnePlus">OnePlus</option>
                     <option value="Sony">Sony</option>
