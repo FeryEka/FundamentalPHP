@@ -73,4 +73,12 @@
 
             return $this->db->rowCount();
         }
+
+        public function cariDataSmartphone(){
+            $keyword = $_POST['keyword'];
+            $query = "SELECT * FROM smartphones WHERE nama LIKE :keyword";
+            $this->db->query($query);
+            $this->db->bind('keyword', "%$keyword%");
+            return $this->db->resultSet();
+        }
     }

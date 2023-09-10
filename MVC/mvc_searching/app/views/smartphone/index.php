@@ -7,11 +7,27 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6 kb">
-            <!-- Button trigger modal -->
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/smartphone/cari" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Cari Smartphone" name="keyword" id="keyword" aria-describedby="button-addon2">
+
+                    <button class="btn btn-outline-primary" type="submit" id="cari" autocomplete="off">cari</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
             <button type="button" class="tombolTambahData btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#formModal">
             add new data
             </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 kb">
 
             <h3>Daftar Smartphone</h3>
             

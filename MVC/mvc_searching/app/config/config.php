@@ -1,5 +1,5 @@
 <?php
-    define('BASEURL', 'http://localhost:8080/FundamentalPHP/MVC/mvc_updatedata/public');    
+    define('BASEURL', 'http://localhost:8080/FundamentalPHP/MVC/mvc_searching/public');    
 
     // database
     define('DB_HOST', 'localhost');

@@ -55,4 +55,12 @@
                 exit;
             }
         }
+
+        public function cari(){
+            $data['judul'] = 'Daftar Smartphone';
+            $data['smartphones'] = $this->model('Smartphone_model')->cariDataSmartphone();
+            $this->view('templates/header', $data);
+            $this->view('smartphone/index', $data);
+            $this->view('templates/footer');  
+        }   
     }
