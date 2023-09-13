@@ -27,6 +27,5 @@ The primary purpose of this repository is to:
 - Gain a solid understanding of PHP fundamentals.
 - Build real-world web applications using PHP.
 - Improve problem-solving and debugging skills.
-- Contribute to the PHP development community.
 
 Feel free to explore the content, provide feedback, or collaborate on PHP-related projects. Let's learn and grow together!
